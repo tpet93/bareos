@@ -370,12 +370,29 @@ Required as catalog backend, simply use the official MySQL/PostgreSQL image
 Build your own Bareos images :
 
 ```bash
-git clone https://github.com/barcus/bareos
+git clone https://github.com/tpet93/bareos
 cd bareos
-docker build -t director-pqsl:20-alpine director-pgsql/20-alpine
-docker build -t storage:20-alpine storage/20-alpine
-docker build -t client:20-alpine client/20-alpine
-docker build -t webui:20-alpine webui/20-alpine
+docker build -t director-pqsl:24-alpine director-pgsql/24-alpine
+docker build -t storage:24-alpine storage/24-alpine
+docker build -t client:24-alpine client/24-alpine
+docker build -t webui:24-alpine webui/24-alpine
+docker build -t api:24-alpine api/24-alpine
+
+
+# Tag images for Docker Hub
+docker tag director-pqsl:24-alpine tpet93/bareos-director:24-alpine-pgsql
+docker tag storage:24-alpine tpet93/bareos-storage:24-alpine
+docker tag client:24-alpine tpet93/bareos-client:24-alpine
+docker tag webui:24-alpine tpet93/bareos-webui:24-alpine
+docker tag api:24-alpine tpet93/bareos-api:24-alpine
+
+
+# Push images to Docker Hub
+docker push tpet93/bareos-director:24-alpine-pgsql
+docker push tpet93/bareos-storage:24-alpine
+docker push tpet93/bareos-client:24-alpine
+docker push tpet93/bareos-webui:24-alpine
+docker push tpet93/bareos-api:24-alpine
 ```
 
 Build your own Xenial base system image :

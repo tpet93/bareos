@@ -18,6 +18,7 @@ LABEL org.label-schema.schema-version="1.0" \
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 RUN apk add --no-cache bareos bareos-storage tar
+RUN apk add --no-cache mt-st mtx lsscsi
 
 RUN tar czf /bareos-sd.tgz /etc/bareos/bareos-sd.d
 RUN mkdir /run/bareos \
